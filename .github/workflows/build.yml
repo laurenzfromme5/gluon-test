@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+jobs:
+  build-ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'gluonhq/gluon-samples'
+      - uses: gluonhq/setup-graalvm@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          arch: aarch64
+      - working-directory: ./HelloGluon
+        run: mvn -Pios gluonfx:build
