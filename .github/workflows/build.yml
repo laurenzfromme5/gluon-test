@@ -13,7 +13,8 @@ jobs:
         with:
           graalvm: '22.1.0.1-Final'
           jdk: 'java17'
-          arch: aarch64
+          #arch: aarch64
+          arch: x86_64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
