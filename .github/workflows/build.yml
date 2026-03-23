@@ -9,8 +9,8 @@ jobs:
           repository: 'gluonhq/gluon-samples'
       - uses: gluonhq/setup-graalvm@master
         with:
-          graalvm: '22.1.0.1-Final'
-          jdk: 'java17'
+          graalvm: '23+25.1-dev-2409082136'
+          jdk: 'java23'
           arch: aarch64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
