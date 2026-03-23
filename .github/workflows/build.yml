@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 jobs:
   build-ios:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
         with:
@@ -10,7 +10,7 @@ jobs:
       - uses: gluonhq/setup-graalvm@master
         with:
           graalvm: '22.1.0.1-Final'
-          jdk: 'java23'
+          jdk: 'java17'
           arch: aarch64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
