@@ -22,4 +22,7 @@ jobs:
           java -version
           javac -version
           grep -R --line-number -E "21|--release|maven.compiler.release|maven.compiler.source|maven.compiler.target|sourceCompatibility|targetCompatibility|languageVersion|release" || true
-          mvn -Pios gluonfx:build
+          mvn -N io.takari:maven:wrapper -Dmaven=3.8.8
+          ./mvnw -v
+          ./mvnw -Pios gluonfx:build
+          
