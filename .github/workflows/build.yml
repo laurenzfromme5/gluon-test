@@ -6,11 +6,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: 'gluonhq/gluon-samples'
+          #repository: 'gluonhq/gluon-samples'
+          ref: 'fe15d0b82a0a287fe16fcf3382623015576d0a46'
+          fetch-depth: 0
       - uses: gluonhq/setup-graalvm@master
         with:
           graalvm: '22.1.0.1-Final'
-          jdk: 'java23'
+          jdk: 'java17'
           arch: aarch64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
