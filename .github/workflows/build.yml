@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 jobs:
   build-ios:
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
         with:
@@ -16,4 +16,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - working-directory: ./HelloGluon
-        run: mvn -Pios gluonfx:build
+        run: |
+          java -version
+          javac -version
+          grep -R --line-number -E "21|--release|maven.compiler.release|maven.compiler.source|maven.compiler.target|sourceCompatibility|targetCompatibility|languageVersion|release" || true
+          mvn -Pios gluonfx:build
