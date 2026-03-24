@@ -1,8 +1,8 @@
 on:
   workflow_dispatch:
 jobs:
-  build-ios:
-    runs-on: macos-14
+  build:  #build-ios:
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
         with:
@@ -10,7 +10,7 @@ jobs:
       - uses: gluonhq/setup-graalvm@master
         with:
           graalvm: '22.1.0.1-Final'
-          #jdk: 'java17'
+          jdk: 'java17'
           arch: aarch64
           #arch: x86_64
         env:
