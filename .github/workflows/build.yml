@@ -26,5 +26,5 @@ jobs:
           ./mvnw -v
           rm -rf target
           ./mvnw -U clean package
-          ./mvnw -Pios gluonfx:build gluonfx:package
+          ./mvnw -Pdesktop gluonfx:build gluonfx:package
           
