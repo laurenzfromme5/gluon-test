@@ -1,21 +1,22 @@
 on:
   workflow_dispatch:
 jobs:
-  build:  #build-ios:
+  build-ios:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'gluonhq/gluon-samples'
+          ref: '6988d463f260be783b2e6cb614414a333c8a977b'
+          fetch-depth: 0
       - uses: gluonhq/setup-graalvm@master
-        #with:
-          #graalvm: '22.1.0.1-Final'
-          #jdk: 'java17'
-          #arch: aarch64
+        with:
+          graalvm: '22.1.0.1-Final'
+          jdk: 'java17'
+          arch: aarch64
           #arch: x86_64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - uses: actions/checkout@v4
-        with:
-          repository: 'laurenzfromme5/gluon-samples'
           
       - working-directory: ./HelloGluon
         run: |
@@ -24,7 +25,4 @@ jobs:
           grep -R --line-number -E "21|--release|maven.compiler.release|maven.compiler.source|maven.compiler.target|sourceCompatibility|targetCompatibility|languageVersion|release" || true
           mvn -N io.takari:maven:wrapper -Dmaven=3.8.8
           ./mvnw -v
-          rm -rf target
-          ./mvnw -U clean package
-          ./mvnw -Pdesktop gluonfx:build gluonfx:package
-          
+          ./mvnw -Pios gluonfx:build
