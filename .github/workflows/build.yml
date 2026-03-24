@@ -4,17 +4,18 @@ jobs:
   build:  #build-ios:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: 'laurenzfromme5/gluon-samples'
       - uses: gluonhq/setup-graalvm@master
         with:
           graalvm: '22.1.0.1-Final'
           jdk: 'java17'
-          arch: aarch64
+          #arch: aarch64
           #arch: x86_64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - uses: actions/checkout@v4
+        with:
+          repository: 'laurenzfromme5/gluon-samples'
           
       - working-directory: ./HelloGluon
         run: |
@@ -25,5 +26,5 @@ jobs:
           ./mvnw -v
           rm -rf target
           ./mvnw -U clean package
-          ./mvnw -Pios gluonfx:build
+          ./mvnw -Pios gluonfx:build gluonfx:package
           
