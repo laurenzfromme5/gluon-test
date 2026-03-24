@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 jobs:
   build-ios:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,6 +23,7 @@ jobs:
           grep -R --line-number -E "21|--release|maven.compiler.release|maven.compiler.source|maven.compiler.target|sourceCompatibility|targetCompatibility|languageVersion|release" || true
           mvn -N io.takari:maven:wrapper -Dmaven=3.8.8
           ./mvnw -v
+          rm -rf target
           ./mvnw -U clean package
           ./mvnw -Pios gluonfx:build
           
