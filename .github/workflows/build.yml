@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'gluonhq/gluon-samples'
-          ref: 'fe15d0b82a0a287fe16fcf3382623015576d0a46'
+          ref: '2242141ee2aba37c054901caa0aa4e949208e745'
           fetch-depth: 0
       - uses: gluonhq/setup-graalvm@master
         with:
