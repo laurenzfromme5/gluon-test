@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: 'gluonhq/gluon-samples'
+          repository: 'laurenzfromme5/gluon-samples'
       - uses: gluonhq/setup-graalvm@master
         with:
           graalvm: '22.1.0.1-Final'
