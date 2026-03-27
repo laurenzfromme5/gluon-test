@@ -22,4 +22,4 @@ jobs:
         run: |
           java -version
           javac -version
-          ./mvnw -Pios gluonfx:build
+          mvn -Pios gluonfx:build
