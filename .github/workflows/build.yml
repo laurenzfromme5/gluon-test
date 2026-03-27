@@ -12,7 +12,7 @@ jobs:
       - uses: gluonhq/setup-graalvm@master
         with:
           graalvm: '22.1.0.1-Final'
-          jdk: 'java17'
+          jdk: 'java23'
           #arch: aarch64
           #arch: x86_64
         env:
