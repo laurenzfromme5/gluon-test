@@ -6,9 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: 'gluonhq/gluon-samples'
-          # ref: 'a9f84062bcca01372dba5eb6438e1cd119fe6277'
-          fetch-depth: 0
+          repository: 'laurenzfromme5/gluon-samples'
+          
+          
       - uses: gluonhq/setup-graalvm@master
         with:
           graalvm: '22.1.0.1-Final'
