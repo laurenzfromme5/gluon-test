@@ -13,7 +13,7 @@ jobs:
         with:
           graalvm: '22.1.0.1-Final'
           jdk: 'java17'
-          arch: aarch64
+          #arch: aarch64
           #arch: x86_64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -22,7 +22,4 @@ jobs:
         run: |
           java -version
           javac -version
-          grep -R --line-number -E "21|--release|maven.compiler.release|maven.compiler.source|maven.compiler.target|sourceCompatibility|targetCompatibility|languageVersion|release" || true
-          mvn -N io.takari:maven:wrapper -Dmaven=3.8.8
-          ./mvnw -v
-          ./mvnw -Pdesktop,mac gluonfx:build gluonfx:package
+          ./mvnw -Pios gluonfx:build
